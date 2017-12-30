@@ -8,7 +8,7 @@ Setup:
 
 * Clone the repo
 
-* View the Wiki on how to get setup and running
+* View the detailed Wiki on how to get set up and running
 
 Contribute:
 

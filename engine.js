@@ -62,7 +62,7 @@ function continueStory(section, iterator) {
   var sectionBox = this.getField("sectionBox");
   segmentIterator += 1;
   if (noMoreSegments(section, iterator)) {
-    displaySegment(sectionBox, section, iterator);
+    hideSectionElements();
     displayChoices(section);
     resetIterator();
   } else {
