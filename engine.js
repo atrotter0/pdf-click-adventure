@@ -1,25 +1,37 @@
 //engine
-const MAX_CHOICES = 3;
+var MAX_CHOICES = 4;
 
 function reset() {
-  elementDisplay("newGameBtn", true);
-  elementDisplay("loadGameBtn", true);
-  elementDisplay("sectionBox", false);
-  elementDisplay("titleBox", false);
-  elementDisplay("continueBtn", false);
-  //hideChoiceBtnsBoxes();
+  showGameOptions();
+  hideSectionElements();
+  hideChoiceElements();
 }
 
 function newGame() {
-  toggleElements();
+  hideGameOptions();
+  showSectionElements();
 }
 
-function toggleElements() {
+function showGameOptions() {
+  elementDisplay("newGameBtn", true);
+  elementDisplay("loadGameBtn", true);
+}
+
+function hideGameOptions() {
   elementDisplay("newGameBtn", false);
   elementDisplay("loadGameBtn", false);
+}
+
+function showSectionElements() {
   elementDisplay("sectionBox", true);
   elementDisplay("titleBox", true);
   elementDisplay("continueBtn", true);
+}
+
+function hideSectionElements() {
+  elementDisplay("sectionBox", false);
+  elementDisplay("titleBox", false);
+  elementDisplay("continueBtn", false);
 }
 
 function elementDisplay(id, boolean) {
@@ -77,10 +89,10 @@ function resetIterator() {
 
 function displayChoices(section) {
   elementDisplay("continueBtn", false);
-  showChoiceBtnsBoxes(section);
+  showChoiceElements(section);
 }
 
-function showChoiceBtnsBoxes(section) {
+function showChoiceElements(section) {
   for(i = 0; i < section.choices.length; i++) {
     var btnId = "choice" + (i + 1) + "Btn"
     var boxId = "choice" + (i + 1) + "Box"
@@ -92,6 +104,15 @@ function showChoiceBtnsBoxes(section) {
   }
 }
 
+function hideChoiceElements() {
+  for(i = 0; i < MAX_CHOICES; i++) {
+    var btnId = "choice" + (i + 1) + "Btn"
+    var boxId = "choice" + (i + 1) + "Box"
+    elementDisplay(btnId, false);
+    elementDisplay(boxId, false);
+  }
+}
+
 function whatDoYouDo() {
   var titleBox = this.getField("titleBox");
   titleBox.value = "What do  you do?";
@@ -99,17 +120,30 @@ function whatDoYouDo() {
 
 function getChoiceText(choiceKey, boxId) {
   var choiceBox = this.getField(boxId);
-  choice = choiceMap[choiceKey]
+  var choice = getChoice(choiceKey);
   choiceBox.value = choice.text;
 }
 
-function hideChoiceBtnsBoxes() {
-  for(i = 0; i < MAX_CHOICES; i++) {
-    var btnId = "choice" + (i + 1) + "Btn"
-    var boxId = "choice" + (i + 1) + "Box"
-    elementDisplay(btnId, false);
-    elementDisplay(boxId, false);
-  }
+function getChoice(key) {
+  return choiceMap[key]
+}
+
+function getSection(key) {
+  return sectionMap[key];
+}
+
+function makeChoice(choiceKey) {
+  hideChoiceElements();
+  setSection(choiceKey);
+  showSectionElements();
+  startStory(currentSection);
+}
+
+function setSection(choiceKey) {
+  var choice = getChoice(choiceKey);
+  var sectionKey = choice.toSection;
+  var nextSection = getSection(sectionKey);
+  currentSection = nextSection;
 }
 
 console.println("loaded engine!");
