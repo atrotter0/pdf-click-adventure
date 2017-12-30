@@ -1,0 +1,2 @@
+//continue
+continueStory(currentSection, segmentIterator);
