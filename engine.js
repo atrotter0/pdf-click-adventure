@@ -1,5 +1,5 @@
 //engine
-var MAX_CHOICES = 4;
+const MAX_CHOICES = 3;
 
 function reset() {
   elementDisplay("newGameBtn", true);
@@ -7,7 +7,7 @@ function reset() {
   elementDisplay("sectionBox", false);
   elementDisplay("titleBox", false);
   elementDisplay("continueBtn", false);
-  hideChoiceBtnsBoxes();
+  //hideChoiceBtnsBoxes();
 }
 
 function newGame() {
@@ -104,7 +104,7 @@ function getChoiceText(choiceKey, boxId) {
 }
 
 function hideChoiceBtnsBoxes() {
-  for(i = 0; i <= MAX_CHOICES; i++) {
+  for(i = 0; i < MAX_CHOICES; i++) {
     var btnId = "choice" + (i + 1) + "Btn"
     var boxId = "choice" + (i + 1) + "Box"
     elementDisplay(btnId, false);
