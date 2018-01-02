@@ -6,6 +6,7 @@ var section = {
   defaultText: '',
   segments: [],
   choices: [],
+  metaInfo: '',
   nextSection: ''
 };
 
@@ -20,7 +21,7 @@ var section1 = {
     '“It’s too late for them!” Vattar yells, slamming the doors of the inn closed. Solid thumps resound loudly on the wooden barricade; arrows missing their targets.',
     'The half-elf is splattered with blood. Behind him, three motionless bodies lie on the floor, Xefna and his two thugs.',
     '“Like hell it’s too late!” Rholsk snarls, charging forward to rush outside. “I’m not goin’ down without a fight.”',
-    'Vattar grabs Rholsk by the shoulder, an incredulous look on his face. “Don’t you see what’s happening out there? The Zhentarim are raiding your village! They’ll leave none alive to tell what happened here.”',
+    'Vattar grabs Rholsk by the shoulder, an incredulous look on his face. “Don’t you see what’s happening out there? The Zhentarim are raiding your village! They will leave none alive to tell what happened here.”',
     '“Get yer hands off of me,” Rholsk growls, slowly turning his head to look Vattar in the eyes. “We can’t just run away. This village is all we have!”',
     'Vattar releases the half-orc’s shoulder and placatingly raises his hands. “I don’t want anyone else to die either, and I understand you’re upset, Rholsk, but we can’t risk it.”',
     'Vattar looks at you. “If you’re captured, you will suffer a fate worse than death. Malisar will not have forgotten what we did to him. I need you. The Harpers need you. One village is a small sacrifice to keep the realm safe.”',
@@ -34,6 +35,7 @@ var section1 = {
     'C12',
     'C13'
   ],
+  metaInfo: '',
   nextSection: ''
 };
 
@@ -56,6 +58,7 @@ var section2 = {
     'C23',
     'C24'
   ],
+  metaInfo: '',
   nextSection: ''
 };
 
